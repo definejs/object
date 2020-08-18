@@ -1,0 +1,17 @@
+{
+  "name": "@definejs/object",
+  "version": "1.0.2",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    
+  },
+  "keywords": [],
+  "author": "micty",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/definejs/object.git"
+  },
+  "email": "mictydeng@qq.com",
+  "license": "MIT"
+}
