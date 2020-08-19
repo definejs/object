@@ -1,17 +1,16 @@
 {
   "name": "@definejs/object",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    
-  },
+  "scripts": {},
   "keywords": [],
   "author": "micty",
+  "email": "mictydeng@qq.com",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/definejs/object.git"
   },
-  "email": "mictydeng@qq.com",
-  "license": "MIT"
+  "dependencies": {}
 }
