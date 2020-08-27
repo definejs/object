@@ -216,10 +216,10 @@ module.exports = exports = {
             deep = false;
         }
 
+
         for (let key in obj) {
             let value = obj[key];
-            let test = fn(key, value);
-            let each = exports.each;
+            let test = fn(key, value, obj);
 
             // 只有在 fn 中明确返回 false 才停止循环。
             if (test === false) {
@@ -228,7 +228,7 @@ module.exports = exports = {
 
             //指定了深迭代，并且当前 value 为非 null 的对象。
             if (deep === true && value && typeof value == 'object') {
-                each(true, value, fn); //递归
+                exports.each(true, value, fn); //递归
             }
         }
     },

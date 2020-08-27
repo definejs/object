@@ -7,7 +7,7 @@ Object 对象工具。
 ``` javascript
 const $Object = require('@definejs/object');
 
-const objt = {
+const obj = {
     a: 1,
     b: 2,
     c: {
@@ -17,7 +17,7 @@ const objt = {
 };
 
 //指定第一个参数为 true，则可以深层次迭代。
-$Object.each(true, obj, (key, value) => {
+$Object.each(true, obj, (key, value, obj) => {
     console.log(key, value);
 });
 
