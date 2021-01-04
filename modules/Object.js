@@ -264,7 +264,7 @@ module.exports = exports = {
                 target[key] = map(true, value, fn); //递归
             }
             else {
-                target[key] = fn(key, value);
+                target[key] = fn(key, value, obj);
             }
         }
 
@@ -403,5 +403,49 @@ module.exports = exports = {
         }
 
         return target;
+    },
+
+    /**
+    * 对一个对象的键进行排序，返回一个新的对象。
+    * 已重载 sort(obj);
+    * 已重载 sort(obj, sort);
+    * 已重载 sort(deep, obj);
+    * 已重载 sort(deep, obj, sort);
+    * @param {boolen} [deep=false] 指示是否要进行深层次的迭代。
+    *   如果是，请指定 true；
+    *   否则请指定 false 或不指定。 默认为 false，即浅迭代。
+    * @param {Object} obj 要进行迭代处理的对象。
+    * @param {function} [sort] 可选的排序函数。
+    */
+    sort(deep, obj, sort) {
+        //重载 sort(obj, sort);
+        if (typeof deep != 'boolean') {
+            sort = obj;
+            obj = deep;
+            deep = false;
+        }
+
+        if (!obj) {
+            return obj;
+        }
+
+
+        sort = sort || undefined; //这里要用 undefined。
+
+
+        let target = {};
+
+        Object.keys(obj).sort(sort).forEach((key) => {
+            let value = obj[key];
+
+            if (deep && exports.isPlain(value)) {
+                value = exports.sort(deep, value, sort);
+            }
+
+            target[key] = value;
+        });
+
+        return target;
+
     },
 };
